@@ -11,10 +11,16 @@ public class TextArea {
     WebElement element;
 
     public TextArea(WebDriver driver, String label) {
+        System.out.println("looking for element with label: " + label);
         element = driver.findElement(By.xpath(String.format(LOCATOR, label)));
     }
 
     public void write(String text) {
+        if(null!=text) {
+        System.out.println("writing text into textArea: " + text);
         element.sendKeys(text);
+    } else {
+        element.clear();
+    }
     }
 }

@@ -12,7 +12,6 @@ public class LoginPage extends BasePage{
 
     @Override
     public LoginPage isPageOpened() {
-
         return this;
     }
 
@@ -23,15 +22,20 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public LoginPage provideCredsAndLogin(String usernsme, String password){
-        driver.findElement(By.id("username")).sendKeys(usernsme);
+    public LoginPage provideCredsAndLogin(String username, String password){
+        driver.findElement(By.id("username")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("Login")).click();
         return this;
     }
 
-    public AccountsPage verifyLogin(){
+    public AccountsPage verifyLoginAccounts(){
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("trial-subscribe-now")));
         return new AccountsPage(driver);
+    }
+
+    public ContactsPage verifyLoginContacts(){
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("trial-subscribe-now")));
+        return new ContactsPage(driver);
     }
 }
