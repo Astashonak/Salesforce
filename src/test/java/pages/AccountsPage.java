@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AccountsPage extends BasePage {
-
     private static final String NEW_BUTTON_CSS = "[title=New]";
     private static final String SAVE_BUTTON_CSS = "[title=Save]";
 
@@ -23,6 +22,7 @@ public class AccountsPage extends BasePage {
     @Override
     public AccountsPage openPage() {
         driver.get("https://ap17.lightning.force.com/lightning/o/Account/list?filterName=Recent");
+        isPageOpened();
         return this;
     }
 
